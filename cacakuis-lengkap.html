@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caca Kuis Gemes</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 2rem;
+      color: #333;
+    }
+    .question {
+      display: none;
+      margin: 2rem 0;
+    }
+    .question.active {
+      display: block;
+    }
+    .answers button {
+      background-color: #ffb6c1;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .answers button:hover {
+      background-color: #ff69b4;
+    }
+    #result {
+      display: none;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 15px;
+      border: 2px dashed pink;
+    }
+    audio {
+      display: block;
+      margin: 2rem auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>💗 Caca Kuis Lucu 💗</h1>
+  <p>Jawab semua pertanyaan ini yaaa 😚</p>
+
+  <div class="question active">
+    <p class="question-text">1. Kenapa kamu gemesin banget?</p>
+    <div class="answers">
+      <button onclick="nextQuestion()">Karena aku lucu 😚</button>
+      <button onclick="nextQuestion()">Emang dari lahir uwu 😋</button>
+      <button onclick="nextQuestion()">Karna kamu yang bikin aku gemes~ 😳</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <p class="question-text">2. Kalo aku ngambek, kamu bakal?</p>
+    <div class="answers">
+      <button onclick="nextQuestion()">Peluk sampe diem 😗</button>
+      <button onclick="nextQuestion()">Beliin boba 😆</button>
+      <button onclick="nextQuestion()">Ngambek juga 😤</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <p class="question-text">3. Pilih yang paling kamu suka:</p>
+    <div class="answers">
+      <button onclick="nextQuestion()">Makan bareng</button>
+      <button onclick="nextQuestion()">Tiduran sambil peluk</button>
+      <button onclick="nextQuestion()">Ngobrol lucu malem-malem</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <p class="question-text">4. Kalau aku nyebelin, kamu akan?</p>
+    <div class="answers">
+      <button onclick="nextQuestion()">Inget kalo kamu sayang aku 😚</button>
+      <button onclick="nextQuestion()">Mandi dulu biar adem</button>
+      <button onclick="nextQuestion()">Pura-pura marah trus ketawa</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <p class="question-text">5. Kamu sayang aku seberapaaa?</p>
+    <div class="answers">
+      <button onclick="showResult()">Sebesar semestaaa 🌌</button>
+      <button onclick="showResult()">Seumur hidup pokoknya 🥹</button>
+      <button onclick="showResult()">Lebih dari kata sayang itu sendiri 😭</button>
+    </div>
+  </div>
+
+  <div id="result">
+    <p><strong>haaiii sayaaanggg....</strong><br><br>
+    kereennn ihh bisaaa jawabb semuaa pertanyaannyaaa hahahaha 😍<br><br>
+    akuu cumaaa mauu ngungkapinn perasaann akuu kee kamuuu tapii gatauu dengann caraa apaa 😳<br><br>
+    akuuu saayaaanggg bangettt samaa kamuuu, akuu bener benerr beruntunggg bangettt dipertemukann dengann kamuuu 💖<br><br>
+    akuu bersyukurr bangettt sayaanggg bisaa samaa kamuuu, akuu bener benerr ngerasaa dihargainnn 🥹<br><br>
+    tapiii akuu jugaa mauu mintaa maafff samaa kamuuu, akuu sadarrr apaa yang kamuu kasii kee akuu, apaa yang kamu buat kee akuu, akuu belum bisaa ngebalesnyaa dengan baikkk 😔<br><br>
+    akuu sering bangettt kesel kee kamuu, sering ngambekkk, seringgg kesinggunggg, dann seringg bangettt belum bisaa ngertiin  kamuuu dikeadaann apapunnn<br><br>
+    mintaaa maafff yaaa sayaanggg 🙏<br><br>
+    pokonyaaa akuu mauuu kitaa perbaikiii bareng barenggg yaaaa??? 😚<br><br>
+    semuanyaaa pastii akuuu jadiinn pelajarannn demii sehatnyaaa hubungann kitaaa<br>
+    akuuu bakall berusahaaa see baik baiknyaaa biarrr kamuuu selaluu senangg samaa akuuu 💪<br>
+    biarrr kamuu bahagiaa teruss samaa akuuu, yangg pastinyaaa berusahaaa buatt jadii yang terbaikkk buattt kamuu sayaanggg 😘<br><br>
+    kalooo adaa apaa apaaa omonginnn barengg barengg okeeyyy?? mauuu ituu masalah sekecil apapunnn ituuu kitaa cariii jalann keluarnyaa berduaaa 🫂<br><br>
+    kamuuu sekarangg udaaa punyaa akuuu, jadiii jangannn pernahh ngerasaa sendiriann yaaa sayaanggg? 🩷<br><br>
+    akuuu sayaaangggg bangettt samaa kamuuuu<br><strong>I lovee youuu soo muchh cacaaaa💗🤍</strong></p>
+  </div>
+
+  <audio controls autoplay loop>
+    <source src="https://dl.sndup.net/mqk4/youllbeinmyheart.mp3" type="audio/mp3">
+    Maaf, browser kamu tidak support audio :(
+  </audio>
+
+  <script>
+    let current = 0;
+    const questions = document.querySelectorAll('.question');
+    function nextQuestion() {
+      questions[current].classList.remove('active');
+      current++;
+      questions[current].classList.add('active');
+    }
+    function showResult() {
+      questions[current].classList.remove('active');
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
